@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.moneyconverter"
+    namespace = "com.example.searchinlist"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.moneyconverter"
+        applicationId = "com.example.searchinlist"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

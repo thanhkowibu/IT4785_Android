@@ -1,17 +1,16 @@
-package com.example.searchlist
+package com.example.searchinlist
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.searchlist.R
 
 class StudentAdapter(private var students: List<Student>) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
-    inner class StudentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
-        val mssvTextView: TextView = itemView.findViewById(R.id.mssvTextView)
+    class StudentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val fullName: TextView = itemView.findViewById(R.id.tvFullName)
+        val studentId: TextView = itemView.findViewById(R.id.tvStudentId)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -20,16 +19,17 @@ class StudentAdapter(private var students: List<Student>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
-        holder.nameTextView.text = students[position].name
-        holder.mssvTextView.text = students[position].mssv
+        val student = students[position]
+        holder.fullName.text = student.fullName
+        holder.studentId.text = student.studentId
     }
 
     override fun getItemCount(): Int {
         return students.size
     }
 
-    fun updateList(filteredStudents: List<Student>) {
-        students = filteredStudents
+    fun updateList(newList: List<Student>) {
+        students = newList
         notifyDataSetChanged()
     }
 }

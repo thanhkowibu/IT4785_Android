@@ -1,4 +1,4 @@
-package com.example.searchlist
+package com.example.searchinlist
 
 import org.junit.Test
 
